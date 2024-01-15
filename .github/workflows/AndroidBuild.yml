@@ -34,5 +34,5 @@ jobs:
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ steps.lastcommit.outputs.shorthash }}.apk
+          name: AndroidWithGithubActions_${{ steps.lastcommit.outputs.shorthash }}.apk
           path: app/build/outputs/apk/debug/app-debug.apk
