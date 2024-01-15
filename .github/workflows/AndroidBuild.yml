@@ -1,0 +1,25 @@
+name: Androidbuild
+on:
+  pull_request:
+    branches: [ master ]
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: SetUp Java JDK
+        uses: actions/setup-java@v4
+
+      - name: Build With Gradle
+        run: ./gradlew build
+
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: AndroidWithGithubActions.apk
+          path: app/build/outputs/apk/app-debug.apk
